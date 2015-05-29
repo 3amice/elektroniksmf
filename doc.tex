@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[swedish]{babel}
+
+\usepackage[utf8x]{inputenc}
+
+\usepackage{fancyvrb}
+\usepackage{amssymb}
+
+% Minskar margins
+\usepackage{fullpage}
+
+
+\title{ETIA01}
+\author{Meris Bahtijaragic\\Bengt Ericsson}
+\date{2013--02--07}
+
+\begin{document}
+\maketitle
+
+\section{Förstärkare}
+\subsection{Begrepp}
+\begin{itemize}
+  \item \textbf{Differential Mode} Skillnaden mellan signalerna. ($V_{dm}$)
+  \item \textbf{Common Mode} Medelvärdet av signalerna. ($V_{cm}$)
+  \item \textbf{Common Mode Gain} Förstärkningen av medelvärdet av signalerna. ($V_{cm}$)
+  \item \textbf{Differential Mode Gain} Förstärkningen av skillnaden mellan signalerna. ($V_{dm}$)
+  \item \textbf{CMMR} Common Mode Rejection Ratio, förstärkarens förmåga att undertrycka den gemensamma signalen. Anges ibland i dB. ($\frac{A_{dm}}{A_{cm}}$)
+\end{itemize}
+
+\section{AD-omvandlare}
+\subsection{Karaktärsdrag}
+\begin{tabular}{ |l|l|l| }
+  \hline
+  AD-Omvandlare & Snabbhet & Upplösning \\
+  \hline
+  Flash & ++++ & + \\
+  Successiv Approximation & +++ & ++ \\
+  Sigma Delta & ++ & +++\\
+  Integrerande & + & ++++ \\
+  \hline
+\end{tabular}
+
+\subsection{Typisk Kretsmodell}
+%Sätt in figur här, ritad av Bengt himself.
+
+\subsection{Termer}
+\textbf{Upplösning}: Den minsta ändring i spänning som AD-omvandlaren kan mäta av.
+
+\subsection{Generell Metod För Analys av Förstärkare}
+Kolla först så att det är negativ återkoppling.
+Använd att $v_{in+} - v_{in-} = 0$, $i_{in} = 0$ och $R_{ut} = 0$.
+Märk hur strömmen går.
+Använd KVL och KCL för att lösa ut $V_{ut}$.
+
+Exempel:
+%Figur ritad av Bengt himself:
+Utför KVL för slinga in i $V_{in}$, sen genom $R_{a}$, sen till jord genom förstärkaren
+(notera att det är 0V spänningsfall i mellan förstärkarens inportar).
+Resultat: $V_{in} = V_a$
+
+Utför KVL på slinga från förstärkarens pluspol, genom förstärkaren, till RB, slutligen ut i $V_{ut}$.
+Resultat: $V_{b} = -V_{ut}$.
+
+$V_{b} = I_{a} * R_b = \frac{V_{in}}{R_a} * R_b = \frac{R_b}{R_a} * V_{in}$
+
+\subsection{Filter}
+\subsection{Lågpass}
+%Figur ritad av bengt himself.
+Tänk dig en figur med en seriekopplad resistans och en kapacitator, man tar ut spänningen över kondensatorn.
+Plant $0 dB$ t.om brytfrekvensen sen sen $-20dB/dekad$.
+På formen $H(j\omega) = \frac{1}{1+j\omega RC}$
+
+\subsection{Högpass}
+%Figur ritad av bengt himself.
+Tänk dig en figur med en seriekopplad resistans och en kapacitator, man tar ut spänningen över resistansen.
+På formen $H(j\omega) = \frac{1}{1-j\frac{1}{\omega RC}}$
+$+20dB/dekad$ t.om brytfrekvensen sen planar det ut på $0 dB$
+
+\end{document}
