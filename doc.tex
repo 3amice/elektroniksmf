@@ -28,6 +28,23 @@
   \item \textbf{CMMR} Common Mode Rejection Ratio, förstärkarens förmåga att undertrycka den gemensamma signalen. Anges ibland i dB. ($\frac{A_{dm}}{A_{cm}}$)
 \end{itemize}
 
+\subsection{Generell Metod För Analys av Förstärkare}
+Kolla först så att det är negativ återkoppling.
+Använd att $v_{in+} - v_{in-} = 0$, $i_{in} = 0$ och $R_{ut} = 0$.
+Märk hur strömmen går.
+Använd KVL och KCL för att lösa ut $V_{ut}$.
+
+Exempel:
+%Figur ritad av Bengt himself:
+Utför KVL för slinga in i $V_{in}$, sen genom $R_{a}$, sen till jord genom förstärkaren
+(notera att det är 0V spänningsfall i mellan förstärkarens inportar).
+Resultat: $V_{in} = V_a$
+
+Utför KVL på slinga från förstärkarens pluspol, genom förstärkaren, till RB, slutligen ut i $V_{ut}$.
+Resultat: $V_{b} = -V_{ut}$.
+
+$V_{b} = I_{a} * R_b = \frac{V_{in}}{R_a} * R_b = \frac{R_b}{R_a} * V_{in}$
+
 \section{AD-omvandlare}
 \subsection{Karaktärsdrag}
 \begin{tabular}{ |l|l|l| }
@@ -47,24 +64,8 @@
 \subsection{Termer}
 \textbf{Upplösning}: Den minsta ändring i spänning som AD-omvandlaren kan mäta av.
 
-\subsection{Generell Metod För Analys av Förstärkare}
-Kolla först så att det är negativ återkoppling.
-Använd att $v_{in+} - v_{in-} = 0$, $i_{in} = 0$ och $R_{ut} = 0$.
-Märk hur strömmen går.
-Använd KVL och KCL för att lösa ut $V_{ut}$.
 
-Exempel:
-%Figur ritad av Bengt himself:
-Utför KVL för slinga in i $V_{in}$, sen genom $R_{a}$, sen till jord genom förstärkaren
-(notera att det är 0V spänningsfall i mellan förstärkarens inportar).
-Resultat: $V_{in} = V_a$
-
-Utför KVL på slinga från förstärkarens pluspol, genom förstärkaren, till RB, slutligen ut i $V_{ut}$.
-Resultat: $V_{b} = -V_{ut}$.
-
-$V_{b} = I_{a} * R_b = \frac{V_{in}}{R_a} * R_b = \frac{R_b}{R_a} * V_{in}$
-
-\subsection{Filter}
+\section{Filter}
 \subsection{Lågpass}
 %Figur ritad av bengt himself.
 Tänk dig en figur med en seriekopplad resistans och en kapacitator, man tar ut spänningen över kondensatorn.
